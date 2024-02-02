@@ -13,10 +13,10 @@ const redirectTargets = [
 
 export default async function handler(request: Request, context: Context) {
   const index = parseInt(new URL(request.url).searchParams.get("index") || "0");
-  return new Response(null, {
-    status: 302,
+  return new Response("OK", {
+    status: 200,
     headers: {
-      location: redirectTargets[index],
+      //
     },
   });
 }
