@@ -16,14 +16,13 @@ const resources = [
 export default async function handler(request: Request, context: Context) {
   const isDEV = process.env.AWS_REGION === "dev";
   const currentURL = new URL(request.url);
-  console.log(process.env.AWS_REGION, isDEV);
   const index = parseInt(currentURL.searchParams.get("index") || "0");
   const imageFileName = resources[index];
 
   const imageURL = new URL(
     isDEV
       ? `http://localhost:3999/public/${imageFileName}`
-      : context.site.url! + imageFileName
+      : `${context.site.url!}/${imageFileName}`
   );
   const timestamp = Date.now();
   imageURL.searchParams.set("t", timestamp.toString());
