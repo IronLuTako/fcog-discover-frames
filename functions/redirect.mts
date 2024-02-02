@@ -1,6 +1,7 @@
 import { Context } from "@netlify/functions";
 
 const redirectTargets = [
+  "https://warpcast.com/seangeng/0xedb2a886",
   "https://warpcast.com/rpj/0xff78b555",
   "https://warpcast.com/jam/0x308d98ae",
   "https://warpcast.com/seangeng/0xedb2a886",
