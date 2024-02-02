@@ -16,7 +16,7 @@ export default async function handler(request: Request, context: Context) {
   return new Response(null, {
     status: 302,
     headers: {
-      Location: redirectTargets[index],
+      location: redirectTargets[index],
     },
   });
 }
