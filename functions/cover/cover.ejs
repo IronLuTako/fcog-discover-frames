@@ -1,0 +1,29 @@
+<!doctype html>
+<head>
+    <meta property="og:image" content="<%= imageURL %>" />
+    <meta property="fc:frame" content="vNext"/>
+    <meta property="fc:frame:image" content="<%= imageURL %>" />
+    <meta property="fc:frame:button:1" content="Prev"/>
+    <meta property="fc:frame:button:2" content="Go"/>
+    <meta property="fc:frame:button:2:action" content="post_redirect"/>
+    <meta property="fc:frame:button:3" content="Next"/>
+    <title>discover frames</title>
+</head>
+<body>
+    <h1>discover frames</h1>
+    <figure>
+        <img width="380" height="200" alt="" src="<%= imageURL %>" />
+    </figure>
+    <div>
+        <form method="post" action="<%= `/?index=${(index - 1 + imageLength) % imageLength}` %>">
+            <button type="submit">Prev</button>
+        </form>
+        <form action="<%= `/redirect?index=${index}`%>" method="post">
+          <button type="submit">Go</button>
+        </form>
+        <form method="post" action="<%= `/?index=${(index + 1 + imageLength) % imageLength}` %>">
+            <button type="submit">Next</button>
+        </form>
+    </div>
+</body>
+</html>
